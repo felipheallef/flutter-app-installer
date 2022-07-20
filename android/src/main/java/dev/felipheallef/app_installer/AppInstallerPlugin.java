@@ -228,7 +228,6 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
         try {
             getPackageInstaller(actionRequired);
             addApkToInstallSession(bytes, session);
-            Log.d(TAG, "addApkToInstallSession called.");
 
             // Create an install status receiver.
             Context context = mActivity;
@@ -246,7 +245,6 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
             IntentSender statusReceiver = pendingIntent.getIntentSender();
             // Commit the session (this will start the installation workflow).
             session.commit(statusReceiver);
-            Log.d(TAG, "session committed.");
         } catch (IOException e) {
             result.error("installApkBytes", "Couldn't install package", null);
         } catch (RuntimeException e) {
@@ -264,7 +262,6 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
         // if the disk is almost full.
         try (OutputStream packageInSession = session.openWrite("package", 0, bytes.length)) {
             packageInSession.write(bytes, 0, bytes.length);
-            Log.d(TAG, "writing bytes.");
         }
     }
 
@@ -281,21 +278,8 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
             int n;
             while ((n = is.read(buffer)) >= 0) {
                 packageInSession.write(buffer, 0, n);
-                Log.d(TAG, "writing bytes.");
             }
         }
-    }
-
-
-    /**
-     * Set permission to install apps from unknown sources
-     */
-    @TargetApi(Build.VERSION_CODES.O)
-    private void startInstallPermissionSettingActivity() {
-        Uri packageURI = Uri.parse("package:" + applicationContext.getPackageName());
-        // 注意这个是8.0新API
-        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI);
-        this.mActivity.startActivityForResult(intent, 10086);
     }
 
     /**
@@ -332,7 +316,6 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
         try {
             getPackageInstaller(actionRequired);
             addApkToInstallSession(apkFile, session);
-            Log.d(TAG, "addApkToInstallSession called.");
 
             // Create an install status receiver.
             Context context = mActivity;
@@ -350,7 +333,6 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware,
             IntentSender statusReceiver = pendingIntent.getIntentSender();
             // Commit the session (this will start the installation workflow).
             session.commit(statusReceiver);
-            Log.d(TAG, "session committed.");
         } catch (IOException e) {
             result.error("installApkBytes", "Couldn't install package", null);
         } catch (RuntimeException e) {
