@@ -2,33 +2,49 @@
 
 Demonstrates how to use the app_installer plugin.
 
-[中文使用文档](https://github.com/yy1300326388/app_installer/tree/master/example/README_CN.md)
-
-[![Codemagic build status](https://api.codemagic.io/apps/5d5610bc6a6c3600097b4391/5d5610bc6a6c3600097b4390/status_badge.svg)](https://codemagic.io/apps/5d5610bc6a6c3600097b4391/5d5610bc6a6c3600097b4390/latest_build)
-
 ## Getting Started
 
-- Open Store
+### Open App Store
 
 ```dart
 /// App Info
-String androidAppId = 'com.tengyue360.student';
-String iOSAppId = '1440249706';
+String androidAppId = 'com.felipheallef.tasks';
+String iOSAppId = '324684580';
 
 AppInstaller.goStore(androidAppId, iOSAppId);
 ```
 
-- Open Review
+### Open Review
 
 ```dart
 AppInstaller.goStore(androidAppId, iOSAppId, review: true);
 ```
 
-- Install Apk
+### Install Apk (Android-only)
+
+- From device storage:
 > ⚠️You need to allow read storage permission first, otherwise there will be a parsing error ⚠️
 ```dart
 AppInstaller.installApk('/sdcard/apk/app-debug.apk');
 ```
+
+- From assets:
+```dart
+final file = DefaultAssetBundle.of(context).load('assets/apk/app-debug.apk');
+final bytes = file.buffer.asUint8List();
+AppInstaller.installApkBytes(bytes);
+```
+
+- Without user action (Android 12 or higher):
+> If set, user action will not be required when all of the following conditions are met:
+> - The app being installed targets API 30 or higher and is running on Android 12 or higher:
+> - The app is the installer of record of an existing version of the app (in other words, this install session is an app update) or the installer is updating itself.
+> - The installer declares the UPDATE_PACKAGES_WITHOUT_USER_ACTION permission.
+
+```dart
+AppInstaller.installApk('/sdcard/apk/app-debug.apk', actionRequired: false);
+```
+
 
 > AndroidManifest.xml
 
