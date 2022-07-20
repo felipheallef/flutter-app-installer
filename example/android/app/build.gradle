@@ -32,7 +32,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.zero.app_installer_example"
+        applicationId "dev.felipheallef.app_installer_example"
         minSdkVersion 16
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()

@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String androidAppId = 'com.felipheallef.tasks';
-  String iOSAppId = '1440249706';
+  String iOSAppId = '324684580';
 
   @override
   Widget build(BuildContext context) {

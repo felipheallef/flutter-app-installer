@@ -1,4 +1,4 @@
-package com.zero.app_installer_example;
+package dev.felipheallef.app_installer_example;
 
 import androidx.annotation.NonNull;
 
