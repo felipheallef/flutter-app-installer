@@ -1,3 +1,8 @@
+## 1.2.0
+
+* Added support silent update on Android 12+
+* Forked from [app_installer](https://github.com/yy1300326388/app_installer).
+
 ## 1.1.0
 
 * Fix the issue that the application restarts after permission is allowed on Android 11 [#5], thanks @yingzhong27

@@ -1,6 +1,6 @@
 name: app_installer_example
 description: Demonstrates how to use the app_installer plugin.
-version: 1.0.0+4
+version: 1.1.0+5
 publish_to: "none"
 
 environment:
