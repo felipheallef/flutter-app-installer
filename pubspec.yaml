@@ -1,8 +1,8 @@
-name: app_installer
+name: flutter_app_installer
 description: A new Android + iOS app installer plugin , supports opening app stores and editor reviews, as well as installing Apk files.
 version: 1.1.0
-homepage: https://github.com/yy1300326388/app_installer
-documentation: https://github.com/yy1300326388/app_installer/tree/master/example
+homepage: https://github.com/felipheallef/flutter-app-installer
+documentation: https://github.com/felipheallef/flutter-app-installer/tree/master/example
 publish_to: https://pub.dev
 
 environment:
@@ -29,7 +29,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.zero.app_installer
+        package: dev.felipheallef.app_installer
         pluginClass: AppInstallerPlugin
       ios:
         pluginClass: AppInstallerPlugin

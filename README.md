@@ -1,8 +1,6 @@
-# app_installer
+# flutter_app_installer
 
-Install the application
-
-[中文说明](https://github.com/yy1300326388/app_installer/tree/master/README_CN.md)
+A plugin to install or update applications. Supports Android and iOS
 
 ### iOS
 

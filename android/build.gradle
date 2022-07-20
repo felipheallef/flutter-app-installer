@@ -1,4 +1,4 @@
-group 'com.zero.app_installer'
+group 'dev.felipheallef.app_installer'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.2'
+        classpath 'com.android.tools.build:gradle:3.6.4'
     }
 }
 
@@ -22,7 +22,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 16
